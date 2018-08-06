@@ -135,7 +135,7 @@
             <!-- /sidebar mobile toggler -->
 
 
-            {{-- @include('layouts.sidebar') --}}
+            @include('layouts.sidebar')
             
         </div>
         <!-- /main sidebar -->
