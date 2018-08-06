@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Master Dokter
+    Master Ruang
 @endsection
 
 @section('content')
@@ -17,9 +17,9 @@
 
             <div class="card">
                 <div class="card-header header-elements-inline bg-white">
-                    <h6 class="card-title font-weight-bold">Daftar Dokter</h6>
+                    <h6 class="card-title font-weight-bold">Daftar Ruang</h6>
                     <div class="header-elements">
-                        <a href="{{ route('dokter.create') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> &nbsp; Tambah</a>
+                        <a href="{{ route('ruang.create') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> &nbsp; Tambah</a>
                     </div>
                 </div>
 
@@ -29,6 +29,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
+                                <th>Kelas</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
@@ -47,7 +48,7 @@
             var oTable = $('.table').DataTable( {
                 'processing': true,
                 'serverSide': true,
-                'ajax': '{{ route('datatable.dokter') }}'
+                'ajax': '{{ route('datatable.ruang') }}'
             });
         });
 
@@ -57,7 +58,7 @@
 
             if(confirm('Apakah anda yakin?')) {
                 $.ajax({
-                    url: '{{ route('dokter.index') }}/' + id,
+                    url: '{{ route('ruang.index') }}/' + id,
                     dataType: 'json',
                     type: 'post',
                     data: {

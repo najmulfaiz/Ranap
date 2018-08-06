@@ -8,3 +8,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('dokter', 'DokterController')->except(['show']);
+Route::resource('ruang', 'RuangController')->except(['show']);

@@ -17,5 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('dokter', 'DokterController@api')->name('dokter.api');
-Route::get('datatable/dokter', 'DokterController@datatable')->name('dokter.datatable');
+Route::name('api.')->group(function(){
+    Route::get('dokter', 'DokterController@api')->name('dokter');
+});
+
+Route::group(['prefix' => 'datatable', 'as' => 'datatable.'], function(){
+    Route::get('dokter', 'DokterController@datatable')->name('dokter');
+    Route::get('ruang', 'RuangController@datatable')->name('ruang');
+});
