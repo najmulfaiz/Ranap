@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use App\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,9 +14,15 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $users = [
-            'name' => 'Super Admin',
-            'email' => 'super@ranap.com',
-            'password' => Password::hash('super2018')
+            [
+                'name' => 'Super Admin',
+                'email' => 'super@ranap.com',
+                'password' => Hash::make('super2018')
+            ]
         ];
+
+        foreach($users as $user) {
+            User::create($user);
+        }
     }
 }
