@@ -30,6 +30,10 @@
     <script src="/assets/global/js/plugins/forms/styling/uniform.min.js"></script>
     <script>
         $.extend( $.fn.dataTable.defaults, {
+            columnDefs: [
+                { "width": "5%", "targets": 0 },
+                { "width": "15%", "targets": -1 }
+            ],
             autoWidth: false,
             dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
             language: {

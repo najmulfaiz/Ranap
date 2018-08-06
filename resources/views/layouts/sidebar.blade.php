@@ -37,7 +37,7 @@
                 <a href="#" class="nav-link"><i class="icon-database2"></i> <span>Master</span></a>
 
                 <ul class="nav nav-group-sub" data-submenu-title="Master">
-                    <li class="nav-item"><a href="#" class="nav-link">Dokter</a></li>
+                    <li class="nav-item"><a href="{{ route('dokter.index') }}" class="nav-link">Dokter</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Ruang</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Tarif</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Penjamin</a></li>

@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('dokter', 'DokterController@api')->name('dokter.api');
+Route::get('datatable/dokter', 'DokterController@datatable')->name('dokter.datatable');
