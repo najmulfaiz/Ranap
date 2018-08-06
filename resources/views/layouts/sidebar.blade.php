@@ -40,7 +40,7 @@
                     <li class="nav-item"><a href="{{ route('dokter.index') }}" class="nav-link">Dokter</a></li>
                     <li class="nav-item"><a href="{{ route('ruang.index') }}" class="nav-link">Ruang</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Tarif</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Penjamin</a></li>
+                    <li class="nav-item"><a href="{{ route('penjamin.index') }}" class="nav-link">Penjamin</a></li>
                 </ul>
             </li>
 
