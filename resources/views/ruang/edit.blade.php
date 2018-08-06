@@ -35,7 +35,7 @@
                                 <option value="{{ $kelas }}" {{ $kelas == $ruang->kelas ? 'selected' : '' }}>{{ $kelas }}</option>
                             @endforeach
                         </select>
-                        @if ($errors->has('nama'))
+                        @if ($errors->has('kelas'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('kelas') }}</strong>
                             </span>

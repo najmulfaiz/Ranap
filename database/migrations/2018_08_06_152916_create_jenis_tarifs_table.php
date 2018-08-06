@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTarifsTable extends Migration
+class CreateJenisTarifsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateTarifsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tarif', function (Blueprint $table) {
+        Schema::create('jenis_tarif', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->integer('jenis_tarif_id');
-            $table->enum('kelas', ['I', 'II', 'III', 'VIP', 'VVIP'])->nullable();
-            $table->double('tarif', 0, 0);
+            $table->string('nama', 20);
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateTarifsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarif');
+        Schema::dropIfExists('jenis_tarif');
     }
 }

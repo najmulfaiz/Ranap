@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="nama">Nama</label>
-                        <input type="text" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" name="nama" autocomplete="off" value="{{ old('name') }}">
+                        <input type="text" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" name="nama" autocomplete="off" value="{{ old('nama') }}">
                         @if ($errors->has('nama'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('nama') }}</strong>
@@ -33,7 +33,7 @@
                                 <option value="{{ $kelas }}" {{ $kelas == old('kelas') ? 'selected' : '' }}>{{ $kelas }}</option>
                             @endforeach
                         </select>
-                        @if ($errors->has('nama'))
+                        @if ($errors->has('kelas'))
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('kelas') }}</strong>
                             </span>

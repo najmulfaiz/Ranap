@@ -24,5 +24,6 @@ Route::name('api.')->group(function(){
 Route::group(['prefix' => 'datatable', 'as' => 'datatable.'], function(){
     Route::get('dokter', 'DokterController@datatable')->name('dokter');
     Route::get('ruang', 'RuangController@datatable')->name('ruang');
+    Route::get('tarif', 'TarifController@datatable')->name('tarif');
     Route::get('penjamin', 'PenjaminController@datatable')->name('penjamin');
 });
