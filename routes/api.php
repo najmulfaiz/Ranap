@@ -36,6 +36,8 @@ Route::group(['prefix' => 'datatable', 'as' => 'datatable.'], function(){
     Route::get('pendaftaran', 'PendaftaranController@datatable')->name('pendaftaran');
     Route::get('ranap', 'RanapController@datatable')->name('ranap');
     Route::get('pembayaran/{pendaftaran_id}', 'PembayaranController@datatableShow')->name('pembayaran.show');
+    Route::get('laboratorium', 'LaboratoriumController@datatable')->name('laboratorium');
+    Route::get('laboratorium/{pendaftaran_id}', 'LaboratoriumController@datatableShow')->name('laboratorium.show');
 });
 
 Route::group(['prefix' => 'autocomplete', 'as' => 'autocomplete.'], function(){

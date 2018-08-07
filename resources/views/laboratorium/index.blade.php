@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Ruang Rawat Inap
+    Laboratorium
 @endsection
 
 @section('content')
@@ -46,7 +46,7 @@
             var oTable = $('.table').DataTable( {
                 'processing': true,
                 'serverSide': true,
-                'ajax': '{{ route('datatable.ranap') }}'
+                'ajax': '{{ route('datatable.laboratorium') }}'
             });
         });
     </script>

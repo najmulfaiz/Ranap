@@ -13,8 +13,14 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('tarif', 'TarifController')->except(['show']);
     Route::resource('penjamin', 'PenjaminController')->except(['show']);
     Route::resource('pendaftaran', 'PendaftaranController')->except(['show']);
+
+    // MENU RUANG RAWAT INAP
     Route::resource('ranap', 'RanapController');
     Route::get('ranap/{pendaftaran_id}/tindakan', 'RanapController@tindakan')->name('ranap.tindakan');
     Route::post('ranap/tindakan', 'PembayaranController@tindakan')->name('pembayaran.tindakan');
     Route::get('ranap/{pendaftaran_id}/pembayaran', 'PembayaranController@show')->name('ranap.pembayaran');
+
+    // MENU LABORATORIUM
+    Route::resource('laboratorium', 'LaboratoriumController');
+    Route::get('laboratorium/{pendaftaran_id}/tindakan', 'LaboratoriumController@tindakan')->name('laboratorium.tindakan');
 });

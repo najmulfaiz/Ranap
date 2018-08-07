@@ -58,6 +58,13 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a href="{{ route('laboratorium.index') }}" class="nav-link">
+                    <i class="icon-eyedropper3"></i>
+                    <span>Laboratorium</span>
+                </a>
+            </li>
+
             {{-- <li class="nav-item nav-item-submenu">
                 <a href="#" class="nav-link"><i class="icon-magazine"></i> <span>Pendaftaran</span></a>
 
@@ -75,13 +82,13 @@
                 </ul>
             </li> --}}
 
-            <li class="nav-item nav-item-submenu">
+            {{-- <li class="nav-item nav-item-submenu">
                 <a href="#" class="nav-link"><i class="icon-eyedropper3"></i> <span>Laboratorium</span></a>
 
                 <ul class="nav nav-group-sub" data-submenu-title="Laboratorium">
                     <li class="nav-item"><a href="#" class="nav-link">List Pasien</a></li>
                 </ul>
-            </li>
+            </li> --}}
 
             <li class="nav-item nav-item-submenu">
                 <a href="#" class="nav-link"><i class="icon-cabinet"></i> <span>Apotek</span></a>

@@ -99,7 +99,11 @@ class PembayaranController extends Controller
             ]);
         }
 
-        return redirect()->route('ranap.show', $request['pendaftaran_id'])->with('pesan', 'Tindakan berhasil di input.');
+        if($request['jenis_tarif_id'] == 1) {
+            return redirect()->route('ranap.show', $request['pendaftaran_id'])->with('pesan', 'Tindakan berhasil di input.');
+        } else {
+            return redirect()->route('laboratorium.index', $request['pendaftaran_id'])->with('pesan', 'Tindakan berhasil di input.');
+        }
     }
 
     public function datatableShow($id)
