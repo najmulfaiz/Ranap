@@ -11,3 +11,4 @@ Route::resource('dokter', 'DokterController')->except(['show']);
 Route::resource('ruang', 'RuangController')->except(['show']);
 Route::resource('tarif', 'TarifController')->except(['show']);
 Route::resource('penjamin', 'PenjaminController')->except(['show']);
+Route::resource('pendaftaran', 'PendaftaranController')->except(['show']);

@@ -142,4 +142,15 @@ class RuangController extends Controller
 
         return response()->json($res);
     }
+
+    public function api($kelas = null)
+    {
+        if($kelas == null) {
+            $ruang = Ruang::orderBy('nama')->get();
+        } else {
+            $ruang = Ruang::where('kelas', $kelas)->orderBy('nama')->get();
+        }
+
+        return response()->json($ruang);
+    }
 }

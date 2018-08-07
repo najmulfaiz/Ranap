@@ -11,4 +11,9 @@ class Ruang extends Model
         'nama',
         'kelas'
     ];
+
+    public function pendaftaran()
+    {
+        return $this->hasMany('App\Pendaftaran');
+    }
 }
