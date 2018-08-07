@@ -175,8 +175,8 @@ class PendaftaranController extends Controller
                 $pendaftaran->pasien->nomr . ' - ' . $pendaftaran->pasien->nama,
                 $pendaftaran->ruang->nama,
                 date('d-m-Y h:i:s', strtotime($pendaftaran->tanggal_masuk)),
-                '<a href="' . route('penjamin.edit', $pendaftaran->id) . '" class="btn bg-slate-600 btn-sm" data-id="' . $pendaftaran->id . '">Ubah</a>'
-                .'&nbsp; <button class="btn btn-danger btn-sm btn-hapus" data-id="' . $pendaftaran->id . '">Hapus</button>'
+                // '<a href="' . route('penjamin.edit', $pendaftaran->id) . '" class="btn bg-slate-600 btn-sm" data-id="' . $pendaftaran->id . '">Ubah</a>'.
+                '&nbsp; <button class="btn btn-danger btn-sm btn-hapus" data-id="' . $pendaftaran->id . '">Hapus</button>'
             ];
         }
 
