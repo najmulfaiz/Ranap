@@ -15,5 +15,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('pendaftaran', 'PendaftaranController')->except(['show']);
     Route::resource('ranap', 'RanapController');
     Route::get('ranap/{pendaftaran_id}/tindakan', 'RanapController@tindakan')->name('ranap.tindakan');
-    // Route::
+    Route::post('ranap/tindakan', 'PembayaranController@tindakan')->name('pembayaran.tindakan');
+    Route::get('ranap/{pendaftaran_id}/pembayaran', 'PembayaranController@show')->name('ranap.pembayaran');
 });

@@ -13,8 +13,13 @@ class CreatePembayaransTable extends Migration
      */
     public function up()
     {
-        Schema::create('pembayarans', function (Blueprint $table) {
+        Schema::create('pembayaran', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('pendaftaran_id');
+            $table->integer('tarif_id');
+            $table->integer('jenis_tarif_id');
+            $table->double('tarifrs', 0, 0);
+            $table->dateTime('tanggal_bayar')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreatePembayaransTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembayarans');
+        Schema::dropIfExists('pembayaran');
     }
 }

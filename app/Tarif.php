@@ -18,4 +18,9 @@ class Tarif extends Model
     {
         return $this->belongsTo('App\JenisTarif');
     }
+
+    public function pembayaran()
+    {
+        return $this->hasMany('App\Pembayaran');
+    }
 }

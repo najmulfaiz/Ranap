@@ -1,0 +1,140 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Pembayaran;
+
+class PembayaranController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $pendaftaran = \App\Pendaftaran::findOrFail($id);
+        $pembayaran = Pembayaran::where('pendaftaran_id', $id)
+                                ->orderBy('created_at')
+                                ->get();
+
+        return view('pembayaran.show', compact('pendaftaran', 'pembayaran'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
+    public function tindakan(Request $request)
+    {
+        foreach($request['tarif_id'] as $index => $tarif_id) {
+            Pembayaran::create([
+                'pendaftaran_id' => $request['pendaftaran_id'],
+                'tarif_id' => $tarif_id,
+                'jenis_tarif_id' => $request['jenis_tarif_id'],
+                'tarifrs' => $request['tarif'][$index]
+            ]);
+        }
+
+        return redirect()->route('ranap.show', $request['pendaftaran_id'])->with('pesan', 'Tindakan berhasil di input.');
+    }
+
+    public function datatableShow($id)
+    {
+        $find = $_GET['search']['value'] ? $_GET['search']['value'] : '';
+        $pembayaran = Pembayaran::where('pendaftaran_id', $id)
+                        ->whereHas('tarif', function($q) use($find){
+                            $q->where('nama', 'like', '%' . $find . '%');
+                        })
+                        ->offset($_GET['start'])
+                        ->limit($_GET['length'])
+                        ->orderBy('pembayaran.id')
+                        ->get();
+        
+        $recordsTotal = Pembayaran::count();
+        $recordsFiltered = count($pembayaran);
+
+        $data = [];
+        foreach($pembayaran as $index => $pembayaran) {
+            $data[] = [
+                ($index + 1),
+                $pembayaran->tarif->nama,
+                $pembayaran->tarif->jenis_tarif->nama,
+                date('d-m-Y h:i:s', strtotime($pembayaran->created_at)),
+                $pembayaran->tarifrs
+            ];
+        }
+
+        $res = [
+            'draw' => $_GET['draw'],
+            'recordsTotal' => $recordsTotal,
+            'recordsFiltered' => $recordsFiltered,
+            'data' => $data
+        ];
+
+        return response()->json($res);
+    }
+}

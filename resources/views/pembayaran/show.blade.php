@@ -63,13 +63,33 @@
                         </div>
                     </div>
                     <hr />
-                    <a href="{{ route('ranap.pembayaran', $pendaftaran->id) }}" class="btn btn-primary btn-sm">Daftar Pembayaran</a>
-                    <a href="{{ route('ranap.tindakan', $pendaftaran->id) }}" class="btn btn-primary btn-sm">Tambah Tindakan</a>
-                    <a href="#" class="btn btn-primary btn-sm">Resume Medis</a>
-                    <a href="#" class="btn btn-primary btn-sm">Resume Pulang</a>
+                    <table class="table table-striped table-hovered table-bordered">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Tarif</th>
+                                <th>Jenis Tarif</th>
+                                <th>Tanggal</th>
+                                <th>Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function(){
+            var oTable = $('.table').DataTable( {
+                'processing': true,
+                'serverSide': true,
+                'ajax': '{{ route('datatable.pembayaran.show', $pendaftaran->id) }}'
+            });
+        });
+    </script>
 @endsection

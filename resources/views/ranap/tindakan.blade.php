@@ -69,20 +69,22 @@
                         </div>
                     </div>
                     <hr />
-                    <form action="{{ route('pembayaran.simpan') }}" method="POST">
+                    <form action="{{ route('pembayaran.tindakan') }}" method="POST">
                         @csrf
                         <input type="hidden" value="{{ $pendaftaran->id }}" name="pendaftaran_id" readonly>
+                        <input type="hidden" value="1" name="jenis_tarif_id" readonly>
+                        <table class="table table-striped table-hovered table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Nama</th>
+                                    <th>Tarif</th>
+                                    <th>Opsi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table_rincian"></tbody>
+                        </table>
+                        <button class="btn btn-primary btn-sm mt-2">Simpan</button>
                     </form>
-                    <table class="table table-striped table-hovered table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Nama</th>
-                                <th>Tarif</th>
-                                <th>Opsi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table_rincian"></tbody>
-                    </table>
                 </div>
             </div>
         </div>
@@ -107,8 +109,8 @@
                     var nama = ui.item.value;
                     var tarif = ui.item.tarif;
                     var tag = '<tr>'+
-                        '<td><input type="hidden" name="tarif_id[] value="' + id + '"/>"' + nama + '</td>'+
-                        '<td><input type="hidden" name="tarif[] value="' + tarif + '"/>"' + tarif + '</td>'+
+                        '<td><input type="hidden" name="tarif_id[]" value="' + id + '" readonly />' + nama + '</td>'+
+                        '<td><input type="hidden" name="tarif[]" value="' + tarif + '" readonly />' + tarif + '</td>'+
                         '<td><button class="btn btn-danger btn-sm btn-delete">Delete</button></td>'+
                     '</tr>';
                     $('#table_rincian').append(tag);
