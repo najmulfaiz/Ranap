@@ -25,4 +25,15 @@ class Pasien extends Model
     {
         return $this->hasMany('App\Pendaftaran', 'nomr', 'nomr');
     }
+
+    public function getUmurAttribute()
+    {
+        return \Carbon\Carbon::parse($this->attributes['tanggal_lahir'])->age;
+    }
+
+    public function getJenisKelaminTextAttribute()
+    {
+        $jenis_kelamin = [1 => 'Laki-laki', 'Perempuan'];
+        return $jenis_kelamin[$this->attributes['jenis_kelamin']];
+    }
 }

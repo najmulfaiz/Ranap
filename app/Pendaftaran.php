@@ -29,4 +29,14 @@ class Pendaftaran extends Model
     {
         return $this->belongsTo('App\Ruang');
     }
+
+    public function penjamin()
+    {
+        return $this->belongsTo('App\Penjamin');
+    }
+
+    public function dokter()
+    {
+        return $this->belongsTo('App\Dokter');
+    }
 }

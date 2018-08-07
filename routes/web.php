@@ -13,4 +13,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('tarif', 'TarifController')->except(['show']);
     Route::resource('penjamin', 'PenjaminController')->except(['show']);
     Route::resource('pendaftaran', 'PendaftaranController')->except(['show']);
+    Route::resource('ranap', 'RanapController');
+    Route::get('ranap/{pendaftaran_id}/tindakan', 'RanapController@tindakan')->name('ranap.tindakan');
+    // Route::
 });
