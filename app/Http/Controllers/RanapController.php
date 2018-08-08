@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pendaftaran;
+use App\Pembayaran;
 
 class RanapController extends Controller
 {
@@ -61,5 +62,49 @@ class RanapController extends Controller
         $pendaftaran = Pendaftaran::findOrFail($id);
 
         return view('ranap.tindakan', compact('pendaftaran'));
+    }
+
+    public function list($id)
+    {
+        $pendaftaran = \App\Pendaftaran::findOrFail($id);
+        $total_tagihan = Pembayaran::where('pendaftaran_id', $id)->sum('tarifrs');
+
+        return view('ranap.list', compact('pendaftaran', 'total_tagihan'));
+    }
+
+    public function datatableShow($id)
+    {
+        $find = $_GET['search']['value'] ? $_GET['search']['value'] : '';
+        $pembayaran = Pembayaran::where('pendaftaran_id', $id)
+                        ->whereHas('tarif', function($q) use($find){
+                            $q->where('nama', 'like', '%' . $find . '%');
+                        })
+                        ->offset($_GET['start'])
+                        ->limit($_GET['length'])
+                        ->orderBy('pembayaran.id')
+                        ->get();
+        
+        $recordsTotal = Pembayaran::count();
+        $recordsFiltered = count($pembayaran);
+
+        $data = [];
+        foreach($pembayaran as $index => $pembayaran) {
+            $data[] = [
+                ($index + 1),
+                $pembayaran->tarif->nama,
+                $pembayaran->tarif->jenis_tarif->nama,
+                date('d-m-Y h:i:s', strtotime($pembayaran->created_at)),
+                number_format($pembayaran->tarifrs, 2, ',', '.')
+            ];
+        }
+
+        $res = [
+            'draw' => $_GET['draw'],
+            'recordsTotal' => $recordsTotal,
+            'recordsFiltered' => $recordsFiltered,
+            'data' => $data
+        ];
+
+        return response()->json($res);
     }
 }

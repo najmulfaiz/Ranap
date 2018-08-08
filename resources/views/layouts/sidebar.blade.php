@@ -65,53 +65,21 @@
                 </a>
             </li>
 
-            {{-- <li class="nav-item nav-item-submenu">
-                <a href="#" class="nav-link"><i class="icon-magazine"></i> <span>Pendaftaran</span></a>
-
-                <ul class="nav nav-group-sub" data-submenu-title="Pendaftaran">
-                    <li class="nav-item"><a href="#" class="nav-link">Pendaftaran Baru</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">List Pasien</a></li>
-                </ul>
-            </li> --}}
-
-            {{-- <li class="nav-item nav-item-submenu">
-                <a href="#" class="nav-link"><i class="icon-bed2"></i> <span>Ruang Rawat Inap</span></a>
-
-                <ul class="nav nav-group-sub" data-submenu-title="Ruang Rawat Inap">
-                    <li class="nav-item"><a href="#" class="nav-link">List Pasien</a></li>
-                </ul>
-            </li> --}}
-
-            {{-- <li class="nav-item nav-item-submenu">
-                <a href="#" class="nav-link"><i class="icon-eyedropper3"></i> <span>Laboratorium</span></a>
-
-                <ul class="nav nav-group-sub" data-submenu-title="Laboratorium">
-                    <li class="nav-item"><a href="#" class="nav-link">List Pasien</a></li>
-                </ul>
-            </li> --}}
-
             <li class="nav-item nav-item-submenu">
                 <a href="#" class="nav-link"><i class="icon-cabinet"></i> <span>Apotek</span></a>
 
                 <ul class="nav nav-group-sub" data-submenu-title="Apotek">
-                    <li class="nav-item"><a href="#" class="nav-link">List Pasien</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Barang</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Entry Resep</a></li>
                 </ul>
             </li>
 
-            <li class="nav-item nav-item-submenu">
-                <a href="#" class="nav-link"><i class="icon-cash4"></i> <span>Pembayaran</span></a>
-
-                <ul class="nav nav-group-sub" data-submenu-title="Pembayaran">
-                    <li class="nav-item"><a href="#" class="nav-link">List Pasien</a></li>
-                </ul>
-            </li>
-
-            <!-- <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="icon-stack"></i>
-                    <span>Upload Dokumen</span>
+            <li class="nav-item">
+                <a href="{{ route('pembayaran.index') }}" class="nav-link">
+                    <i class="icon-cash4"></i>
+                    <span>Pembayaran</span>
                 </a>
-            </li> -->
+            </li>
 
         </ul>
     </div>
