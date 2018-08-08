@@ -69,8 +69,8 @@
                 <a href="#" class="nav-link"><i class="icon-cabinet"></i> <span>Apotek</span></a>
 
                 <ul class="nav nav-group-sub" data-submenu-title="Apotek">
-                    <li class="nav-item"><a href="#" class="nav-link">Barang</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Entry Resep</a></li>
+                    <li class="nav-item"><a href="{{ route('obat.index') }}" class="nav-link">Obat</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Penjualan</a></li>
                 </ul>
             </li>
 

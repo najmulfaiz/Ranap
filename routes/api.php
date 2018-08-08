@@ -37,6 +37,7 @@ Route::group(['prefix' => 'datatable', 'as' => 'datatable.'], function(){
     Route::get('ranap', 'RanapController@datatable')->name('ranap');
     Route::get('laboratorium', 'LaboratoriumController@datatable')->name('laboratorium');
     Route::get('pembayaran', 'PembayaranController@datatable')->name('pembayaran');
+    Route::get('obat', 'ObatController@datatable')->name('obat');
 
     Route::get('ranap/{pendaftaran_id}', 'RanapController@datatableShow')->name('ranap.show');
     Route::get('laboratorium/{pendaftaran_id}', 'LaboratoriumController@datatableShow')->name('laboratorium.show');

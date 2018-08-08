@@ -26,6 +26,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('laboratorium', 'LaboratoriumController');
     Route::get('laboratorium/{pendaftaran_id}/tindakan', 'LaboratoriumController@tindakan')->name('laboratorium.tindakan');
 
-    // MENU LABORATORIUM
+    // MENU PEMBAYARAN
     Route::resource('pembayaran', 'PembayaranController');
+
+    // MENU APOTEK
+    Route::resource('obat', 'ObatController');
 });
