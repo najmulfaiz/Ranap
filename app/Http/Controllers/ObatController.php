@@ -122,4 +122,24 @@ class ObatController extends Controller
 
         return response()->json($res);
     }
+
+    public function autocomplete()
+    {
+        $find = $_GET['term'];
+        $obat = Obat::where('nama', 'like', '%' . $find . '%')
+                        ->get();
+        
+        $res = [];
+        foreach($obat as $obat) {
+            $res [] = [
+                'id' => $obat->id,
+                'nama' => $obat->nama,
+                'value' => $obat->nama,
+                'nama' => $obat->nama,
+                'hna' => $obat->hna
+            ];
+        }
+
+        return response()->json($res);
+    }
 }

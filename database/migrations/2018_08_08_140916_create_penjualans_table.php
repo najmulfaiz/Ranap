@@ -18,7 +18,7 @@ class CreatePenjualansTable extends Migration
             $table->dateTime('tanggal');
             $table->integer('pendaftaran_id');
             $table->double('total', 0, 0);
-            $table->integer('pembayaran_id');
+            $table->integer('pembayaran_id')->nullable();
             $table->timestamps();
         });
     }

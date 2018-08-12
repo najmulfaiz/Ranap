@@ -31,4 +31,5 @@ Route::group(['middleware' => ['auth']], function(){
 
     // MENU APOTEK
     Route::resource('obat', 'ObatController');
+    Route::resource('penjualan', 'PenjualanController');
 });

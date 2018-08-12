@@ -189,4 +189,29 @@ class PendaftaranController extends Controller
 
         return response()->json($res);
     }
+
+    
+    public function autocomplete()
+    {
+        $find = $_GET['term'];
+        $pendaftaran = Pendaftaran::where('nomr', 'like', '%' . $find . '%')
+                        ->get();
+        
+        $res = [];
+        foreach($pendaftaran as $pendaftaran) {
+            $res [] = [
+                'id' => $pendaftaran->id,
+                'nama' => $pendaftaran->nomr . ' - ' . $pendaftaran->pasien->nama,
+                'value' => $pendaftaran->nomr . ' - ' . $pendaftaran->pasien->nama,
+                'nomr' => $pendaftaran->nomr,
+                'nama' => $pendaftaran->pasien->nama,
+                'alamat' => $pendaftaran->pasien->alamat,
+                'penjamin' => $pendaftaran->penjamin->nama,
+                'ruang' => $pendaftaran->ruang->nama,
+                'dokter' => $pendaftaran->dokter->nama
+            ];
+        }
+
+        return response()->json($res);
+    }
 }

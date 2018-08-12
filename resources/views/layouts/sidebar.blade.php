@@ -70,7 +70,7 @@
 
                 <ul class="nav nav-group-sub" data-submenu-title="Apotek">
                     <li class="nav-item"><a href="{{ route('obat.index') }}" class="nav-link">Obat</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Penjualan</a></li>
+                    <li class="nav-item"><a href="{{ route('penjualan.index') }}" class="nav-link">Penjualan</a></li>
                 </ul>
             </li>
 
