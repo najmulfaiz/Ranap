@@ -44,11 +44,13 @@
                 </ul>
             </li>
 
-            <li class="nav-item">
-                <a href="{{ route('pendaftaran.index') }}" class="nav-link">
-                    <i class="icon-magazine"></i>
-                    <span>Pendaftaran</span>
-                </a>
+            <li class="nav-item nav-item-submenu">
+                <a href="#" class="nav-link"><i class="icon-magazine"></i> <span>Pendaftaran</span></a>
+
+                <ul class="nav nav-group-sub" data-submenu-title="Pendaftaran">
+                    <li class="nav-item"><a href="{{ route('pendaftaran.index') }}" class="nav-link">Pendaftaran</a></li>
+                    <li class="nav-item"><a href="{{ route('simulasi.index') }}" class="nav-link">Simulasi</a></li>
+                </ul>
             </li>
 
             <li class="nav-item">

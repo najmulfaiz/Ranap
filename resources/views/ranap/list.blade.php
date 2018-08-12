@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Laboratorium
+    Ruang Rawat Inap
 @endsection
 
 @section('content')

@@ -76,9 +76,9 @@ class RanapController extends Controller
     {
         $find = $_GET['search']['value'] ? $_GET['search']['value'] : '';
         $pembayaran = Pembayaran::where('pendaftaran_id', $id)
-                        ->whereHas('tarif', function($q) use($find){
-                            $q->where('nama', 'like', '%' . $find . '%');
-                        })
+                        // ->whereHas('tarif', function($q) use($find){
+                        //     $q->where('nama', 'like', '%' . $find . '%');
+                        // })
                         ->offset($_GET['start'])
                         ->limit($_GET['length'])
                         ->orderBy('pembayaran.id')
@@ -89,10 +89,16 @@ class RanapController extends Controller
 
         $data = [];
         foreach($pembayaran as $index => $pembayaran) {
+            if(!isset($pembayaran->tarif->nama)) {
+                $nama = 'Pelayanan Farmasi';
+            } else {
+                $nama = $pembayaran->tarif->nama;
+            }
+
             $data[] = [
                 ($index + 1),
-                $pembayaran->tarif->nama,
-                $pembayaran->tarif->jenis_tarif->nama,
+                $nama,
+                $pembayaran->jenis_tarif->nama,
                 date('d-m-Y h:i:s', strtotime($pembayaran->created_at)),
                 number_format($pembayaran->tarifrs, 2, ',', '.')
             ];

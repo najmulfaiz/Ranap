@@ -19,4 +19,9 @@ class Pembayaran extends Model
     {
         return $this->belongsTo('App\Tarif');
     }
+
+    public function jenis_tarif()
+    {
+        return $this->belongsTo('App\JenisTarif');
+    }
 }

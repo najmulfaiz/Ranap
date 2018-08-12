@@ -13,6 +13,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('tarif', 'TarifController')->except(['show']);
     Route::resource('penjamin', 'PenjaminController')->except(['show']);
     Route::resource('pendaftaran', 'PendaftaranController')->except(['show']);
+    Route::resource('simulasi', 'SimulasiController')->except(['show']);
 
     // SIMPAN TINDAKAN
     Route::post('ranap/tindakan', 'PembayaranController@tindakan')->name('pembayaran.tindakan');
