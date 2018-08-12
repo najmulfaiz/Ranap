@@ -12,11 +12,11 @@ class JenisTarifTableSeeder extends Seeder
      */
     public function run()
     {
-        $jenis_tarif = ['Rawat Inap', 'Laboratorium'];
+        $jenis_tarif = ['Rawat Inap', 'Laboratorium', 'Apotek'];
 
         foreach($jenis_tarif as $jenis_tarif) {
             JenisTarif::create([
-                'nama' => $jenis_tarif
+                'nama' => $jenis_tarif,
             ]);
         }
     }
