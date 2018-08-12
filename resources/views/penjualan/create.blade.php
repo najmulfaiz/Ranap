@@ -91,8 +91,8 @@
                             <hr />
                             <form id="form_item" method="post" action="{{ route('penjualan.store') }}">
                                 @csrf
-                                <input type="text" class="form-control" name="pendaftaran_id" id="pendaftaran_id" readonly>
-                                <input type="text" class="form-control" name="total" id="total" readonly>
+                                <input type="hidden" class="form-control" name="pendaftaran_id" id="pendaftaran_id" readonly>
+                                <input type="hidden" class="form-control" name="total" id="total" readonly>
                                 <table class="table table-bordered table-striped table-hovered">
                                     <thead>
                                         <tr>
