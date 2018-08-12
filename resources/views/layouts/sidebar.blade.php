@@ -33,6 +33,7 @@
                 </a>
             </li>
 
+            @if(Auth::user()->level == 1)
             <li class="nav-item nav-item-submenu">
                 <a href="#" class="nav-link"><i class="icon-database2"></i> <span>Master</span></a>
 
@@ -43,7 +44,9 @@
                     <li class="nav-item"><a href="{{ route('penjamin.index') }}" class="nav-link">Penjamin</a></li>
                 </ul>
             </li>
+            @endif
 
+            @if(Auth::user()->level == 2)
             <li class="nav-item nav-item-submenu">
                 <a href="#" class="nav-link"><i class="icon-magazine"></i> <span>Pendaftaran</span></a>
 
@@ -52,21 +55,27 @@
                     <li class="nav-item"><a href="{{ route('simulasi.index') }}" class="nav-link">Simulasi</a></li>
                 </ul>
             </li>
+            @endif
 
+            @if(Auth::user()->level == 3)
             <li class="nav-item">
                 <a href="{{ route('ranap.index') }}" class="nav-link">
                     <i class="icon-bed2"></i>
                     <span>Ruang Rawat Inap</span>
                 </a>
             </li>
+            @endif
 
+            @if(Auth::user()->level == 4)
             <li class="nav-item">
                 <a href="{{ route('laboratorium.index') }}" class="nav-link">
                     <i class="icon-eyedropper3"></i>
                     <span>Laboratorium</span>
                 </a>
             </li>
+            @endif
 
+            @if(Auth::user()->level == 5)
             <li class="nav-item nav-item-submenu">
                 <a href="#" class="nav-link"><i class="icon-cabinet"></i> <span>Apotek</span></a>
 
@@ -75,13 +84,16 @@
                     <li class="nav-item"><a href="{{ route('penjualan.index') }}" class="nav-link">Penjualan</a></li>
                 </ul>
             </li>
+            @endif
 
+            @if(Auth::user()->level == 6)
             <li class="nav-item">
                 <a href="{{ route('pembayaran.index') }}" class="nav-link">
                     <i class="icon-cash4"></i>
                     <span>Pembayaran</span>
                 </a>
             </li>
+            @endif
 
         </ul>
     </div>
