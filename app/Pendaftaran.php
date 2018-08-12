@@ -17,7 +17,8 @@ class Pendaftaran extends Model
         'diagnosis_keluar',
         'tanggal_masuk',
         'tanggal_keluar',
-        'resume'
+        'resume',
+        'status'
     ];
 
     public function pasien()

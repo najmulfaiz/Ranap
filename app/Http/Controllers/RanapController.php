@@ -113,4 +113,33 @@ class RanapController extends Controller
 
         return response()->json($res);
     }
+
+    function resume(Request $request, $id)
+    {
+        $pendaftaran = Pendaftaran::findOrFail($id);
+
+        $pendaftaran->resume = $request['resume_medis'];
+        $pendaftaran->update();
+
+        $request->session()->flash('pesan', 'Resume berhasil disimpan!');
+
+        return response()->json([
+            'error' => false
+        ]);
+    }
+
+    function pulang(Request $request, $id)
+    {
+        $pendaftaran = Pendaftaran::findOrFail($id);
+
+        $pendaftaran->status = $request['status'];
+        $pendaftaran->tanggal_keluar = date('Y-m-d h:i:s');
+        $pendaftaran->update();
+
+        $request->session()->flash('pesan', 'Pasien berhasil dipulangkan!');
+
+        return response()->json([
+            'error' => false
+        ]);
+    }
 }

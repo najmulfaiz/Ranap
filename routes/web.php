@@ -20,6 +20,8 @@ Route::group(['middleware' => ['auth']], function(){
 
     // MENU RUANG RAWAT INAP
     Route::resource('ranap', 'RanapController');
+    Route::patch('ranap/{pendaftaran_id}/resume', 'RanapController@resume')->name('ranap.resume');
+    Route::patch('ranap/{pendaftaran_id}/pulang', 'RanapController@pulang')->name('ranap.pulang');
     Route::get('ranap/{pendaftaran_id}/tindakan', 'RanapController@tindakan')->name('ranap.tindakan');
     Route::get('ranap/{pendaftaran_id}/pembayaran', 'RanapController@list')->name('ranap.pembayaran');
 
