@@ -61,8 +61,13 @@
                                 </tr>
                             </table>
                         </div>
+                        <div class="col-md-6">
+                            <h3>Total Tagihan : </h3>
+                            <h1 class="font-weight-bold">Rp. {{ number_format($total_tagihan, 2, ',', '.') }}</h1>
+                            <button class="btn btn-primary btn-sm mt-2" id="btn_pulang" data-id="{{ $pendaftaran->id }}">Pulangkan</button>
+                            <a href="{{ route('pembayaran.nota', $pendaftaran->id) }}" class="btn btn-primary btn-sm mt-2" target="_blank">Cetak Nota</a>
+                        </div>
                     </div>
-                    <button class="btn btn-primary btn-sm mt-2" id="btn_pulang" data-id="{{ $pendaftaran->id }}">Pulangkan</button>
                     <hr />
                     <table class="table table-striped table-hovered table-bordered">
                         <thead>

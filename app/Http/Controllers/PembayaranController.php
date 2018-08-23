@@ -48,11 +48,12 @@ class PembayaranController extends Controller
     public function show($id)
     {
         $pendaftaran = \App\Pendaftaran::findOrFail($id);
+        $total_tagihan = Pembayaran::where('pendaftaran_id', $id)->sum('tarifrs');
         $pembayaran = Pembayaran::where('pendaftaran_id', $id)
                                 ->orderBy('created_at')
                                 ->get();
 
-        return view('pembayaran.show', compact('pendaftaran', 'pembayaran'));
+        return view('pembayaran.show', compact('pendaftaran', 'pembayaran', 'total_tagihan'));
     }
 
     /**
@@ -196,4 +197,13 @@ class PembayaranController extends Controller
             'error' => false
         ]);
     }
+
+    public function nota($id)
+    {
+        $pendaftaran = Pendaftaran::where('id', $id)->first();
+        $pembayaran = Pembayaran::where('pendaftaran_id', $id)->get();
+        
+        return view('pembayaran.nota', compact('pembayaran', 'pendaftaran'));
+    }
+
 }

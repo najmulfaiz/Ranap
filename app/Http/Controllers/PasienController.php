@@ -14,4 +14,12 @@ class PasienController extends Controller
 
         return response()->json($pasien);
     }
+
+    public function cek()
+    {
+        $nomr = isset($_GET['nomr']) ? $_GET['nomr'] : '';
+        $pasien = \App\Pendaftaran::where('nomr', $nomr)->count('nomr');
+
+        return response()->json($pasien);
+    }
 }

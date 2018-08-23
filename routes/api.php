@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::name('api.')->group(function(){
     Route::get('dokter', 'DokterController@api')->name('dokter');
     Route::get('pasien', 'PasienController@api')->name('pasien');
+    Route::get('pasien/cek', 'PasienController@cek')->name('pasien.cek');
     Route::get('ruang/{kelas?}', 'RuangController@api')->name('ruang');
     
     Route::get('provinsi', 'DaerahController@provinsi')->name('provinsi');
@@ -30,6 +31,7 @@ Route::name('api.')->group(function(){
 
 Route::group(['prefix' => 'datatable', 'as' => 'datatable.'], function(){
     Route::get('dokter', 'DokterController@datatable')->name('dokter');
+    Route::get('user', 'UserController@datatable')->name('user');
     Route::get('ruang', 'RuangController@datatable')->name('ruang');
     Route::get('tarif', 'TarifController@datatable')->name('tarif');
     Route::get('penjamin', 'PenjaminController@datatable')->name('penjamin');

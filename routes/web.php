@@ -8,6 +8,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('user', 'UserController')->except(['show']);
     Route::resource('dokter', 'DokterController')->except(['show']);
     Route::resource('ruang', 'RuangController')->except(['show']);
     Route::resource('tarif', 'TarifController')->except(['show']);
@@ -31,6 +32,7 @@ Route::group(['middleware' => ['auth']], function(){
 
     // MENU PEMBAYARAN
     Route::resource('pembayaran', 'PembayaranController');
+    Route::get('pembayaran/{id}/nota', 'PembayaranController@nota')->name('pembayaran.nota');
     Route::patch('pembayaran/{id}/pulang', 'PembayaranController@pulang')->name('pembayaran.pulang');
 
     // MENU APOTEK

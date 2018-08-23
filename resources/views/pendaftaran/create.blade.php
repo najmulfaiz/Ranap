@@ -274,21 +274,27 @@
             var nomr = $('#nomr').val();
 
             if(jenis == 2) {
-                cari_pasien(nomr, function(res){
-                    if(res.length) {
-                        var pasien = res[0];
-                        $('input[name=nama]').val(pasien.nama);
-                        $('input[name=tempat_lahir]').val(pasien.tempat_lahir);
-                        $('input[name=tanggal_lahir]').val(pasien.tanggal_lahir);
-                        $('input[name=jenis_kelamin][value=' + pasien.jenis_kelamin + ']').prop('checked', true);
-                        $('textarea[name=alamat]').val(pasien.alamat);
-                        $('select[name=provinsi_id]').val(pasien.provinsi_id);
-                        load_select('kabupaten', pasien.provinsi_id, pasien.kabupaten_id);
-                        load_select('kecamatan', pasien.kabupaten_id, pasien.kecamatan_id);
-                        load_select('kelurahan', pasien.kecamatan_id, pasien.kelurahan_id);
-                        $('select[name=golongan_darah]').val(pasien.golongan_darah);
+                cek_nomr(nomr, function(res){
+                    if(!res) {
+                        cari_pasien(nomr, function(res){
+                            if(res.length) {
+                                var pasien = res[0];
+                                $('input[name=nama]').val(pasien.nama);
+                                $('input[name=tempat_lahir]').val(pasien.tempat_lahir);
+                                $('input[name=tanggal_lahir]').val(pasien.tanggal_lahir);
+                                $('input[name=jenis_kelamin][value=' + pasien.jenis_kelamin + ']').prop('checked', true);
+                                $('textarea[name=alamat]').val(pasien.alamat);
+                                $('select[name=provinsi_id]').val(pasien.provinsi_id);
+                                load_select('kabupaten', pasien.provinsi_id, pasien.kabupaten_id);
+                                load_select('kecamatan', pasien.kabupaten_id, pasien.kecamatan_id);
+                                load_select('kelurahan', pasien.kecamatan_id, pasien.kelurahan_id);
+                                $('select[name=golongan_darah]').val(pasien.golongan_darah);
+                            } else {
+                                alert('Pasien dengan nomor rekam medis ' + nomr + ' tidak ditemukan!');
+                            }
+                        });
                     } else {
-                        console.log('Ora Ketemu');
+                        alert('Pasien masih dirawat!');
                     }
                 });
             }
@@ -388,6 +394,20 @@
         function cari_pasien(nomr, res) {
             $.ajax({
                 url: '{{ route('api.pasien') }}',
+                dataType: 'json',
+                data: { nomr: nomr },
+                success: function(data) {
+                    res(data);
+                },
+                error: function(xhr) {
+                    console.log(xhr);
+                }
+            });
+        }
+
+        function cek_nomr(nomr, res) {
+            $.ajax({
+                url: '{{ route('api.pasien.cek') }}',
                 dataType: 'json',
                 data: { nomr: nomr },
                 success: function(data) {

@@ -124,7 +124,7 @@
                         </div>
                     </div>
                     <hr />
-                    <a href="{{ route('ranap.pembayaran', $pendaftaran->id) }}" class="btn btn-primary btn-sm">Daftar Pembayaran</a>
+                    <a href="{{ route('ranap.pembayaran', $pendaftaran->id) }}" class="btn btn-primary btn-sm">Jasa dan Tindakan</a>
                     <a href="{{ route('ranap.tindakan', $pendaftaran->id) }}" class="btn btn-primary btn-sm">Tambah Tindakan</a>
                     <button class="btn btn-primary btn-sm" id="btn_resume_medis">Resume Medis</button>
                     <button class="btn btn-primary btn-sm" id="btn_resume_pulang">Resume Pulang</button>
@@ -152,6 +152,7 @@
         });
 
         $(document).on('click', '#simpan_resume_medis', function(){
+            var _token = $('meta[name=csrf-token]').attr('content');
             var resume_medis = $('#resume_medis').val();
             
             if(resume_medis != '') {

@@ -38,6 +38,7 @@
                 <a href="#" class="nav-link"><i class="icon-database2"></i> <span>Master</span></a>
 
                 <ul class="nav nav-group-sub" data-submenu-title="Master">
+                    <li class="nav-item"><a href="{{ route('user.index') }}" class="nav-link">User</a></li>
                     <li class="nav-item"><a href="{{ route('dokter.index') }}" class="nav-link">Dokter</a></li>
                     <li class="nav-item"><a href="{{ route('ruang.index') }}" class="nav-link">Ruang</a></li>
                     <li class="nav-item"><a href="{{ route('tarif.index') }}" class="nav-link">Tarif</a></li>

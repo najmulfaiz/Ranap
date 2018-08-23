@@ -16,8 +16,8 @@ class TindakanController extends Controller
         foreach($tarif as $tarif) {
             $res [] = [
                 'id' => $tarif->id,
-                'nama' => $tarif->nama,
-                'value' => $tarif->nama,
+                'nama' => $tarif->nama . ' (' . $tarif->kelas . ')',
+                'value' => $tarif->nama . ' (' . $tarif->kelas . ')',
                 'tarif' => $tarif->tarif
             ];
         }
