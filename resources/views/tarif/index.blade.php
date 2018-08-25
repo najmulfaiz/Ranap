@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Master Tarif
+    Master Layanan
 @endsection
 
 @section('content')
@@ -17,7 +17,7 @@
 
             <div class="card">
                 <div class="card-header header-elements-inline bg-white">
-                    <h6 class="card-title font-weight-bold">Daftar Tarif</h6>
+                    <h6 class="card-title font-weight-bold">Daftar Layanan</h6>
                     <div class="header-elements">
                         <a href="{{ route('tarif.create') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> &nbsp; Tambah</a>
                     </div>

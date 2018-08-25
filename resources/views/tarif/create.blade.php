@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Master Tarif
+    Master Layanan
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header header-elements-inline bg-white">
-                    <h6 class="card-title font-weight-bold">Tambah Tarif</h6>
+                    <h6 class="card-title font-weight-bold">Tambah Layanan</h6>
                 </div>
 
                 <form action="{{ route('tarif.store') }}" method="post">
@@ -27,9 +27,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="jenis_tarif_id">Jenis Tarif</label>
+                        <label for="jenis_tarif_id">Jenis Layanan</label>
                         <select name="jenis_tarif_id" id="jenis_tarif_id" class="form-control{{ $errors->has('jenis_tarif_id') ? ' is-invalid' : '' }}">
-                            <option value=""> -- Pilih Jenis Tarif -- </option>
+                            <option value=""> -- Pilih Jenis Layanan -- </option>
                             @foreach($jenis_tarif as $jenis_tarif)
                                 <option value="{{ $jenis_tarif->id }}" {{ $jenis_tarif->id == old('jenis_tarif_id') ? 'selected' : '' }}>{{ $jenis_tarif->nama }}</option>
                             @endforeach
