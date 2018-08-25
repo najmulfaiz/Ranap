@@ -63,7 +63,11 @@
             @endphp
             @foreach($pembayaran as $pembayaran)
                 <tr>
-                    <td>{{ $pembayaran->tarif->nama }}</td>
+                    @if($pembayaran->jenis_tarif_id == 3)
+                        <td>Pelayanan Farmasi</td>
+                    @else
+                        <td>{{ $pembayaran->tarif->nama }}</td>
+                    @endif
                     <td align="center">{{ $pembayaran->created_at }}</td>
                     <td align="right">Rp. {{ number_format($pembayaran->tarifrs, 0, '.', '.') }}</td>
                 </tr>

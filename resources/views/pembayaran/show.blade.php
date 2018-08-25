@@ -103,7 +103,7 @@
 
             if(confirm('Apakah anda yakin memulangkan pasien ini?')) {
                 $.ajax({
-                    url: '{{ route('pembayaran.pulang', $pendaftaran->id) }}/',
+                    url: '{{ route('pembayaran.pulang', $pendaftaran->id) }}',
                     dataType: 'json',
                     type: 'post',
                     data: {
