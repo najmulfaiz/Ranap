@@ -97,7 +97,7 @@
     <script>
         $(document).ready(function(){
             $('#tindakan').autocomplete({
-                source: '{{ route('autocomplete.tindakan', 1) }}',
+                source: '{{ route('autocomplete.tindakan', [1, $pendaftaran->kelas_id]) }}',
                 search: function() {
                     $(this).parent().addClass('ui-autocomplete-processing');
                 },

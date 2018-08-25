@@ -7,11 +7,19 @@ use App\Tarif;
 
 class TindakanController extends Controller
 {
-    public function autocomplete($id)
+    public function autocomplete($id, $kelas = null)
     {
-        $tarif = Tarif::where('jenis_tarif_id', $id)
+        if($kelas) {
+            $tarif = Tarif::where('jenis_tarif_id', $id)
+                        ->where('nama', 'like', '%' . $_GET['term'] . '%')
+                        ->where('kelas', '=', $kelas)
+                        ->get();
+        } else {
+            $tarif = Tarif::where('jenis_tarif_id', $id)
                         ->where('nama', 'like', '%' . $_GET['term'] . '%')
                         ->get();
+        }
+        
         $res = [];
         foreach($tarif as $tarif) {
             $res [] = [
