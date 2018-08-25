@@ -50,6 +50,16 @@
                                     <td>{{ $pendaftaran->pasien->umur }} Tahun</td>
                                 </tr>
                                 <tr>
+                                    <td class="font-weight-bold">Ruang</td>
+                                    <td>:</td>
+                                    <td>{{ $pendaftaran->ruang->nama }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-weight-bold">Kelas</td>
+                                    <td>:</td>
+                                    <td>{{ $pendaftaran->kelas_id }}</td>
+                                </tr>
+                                <tr>
                                     <td class="font-weight-bold">Penjamin</td>
                                     <td>:</td>
                                     <td>{{ $pendaftaran->penjamin->nama }}</td>
