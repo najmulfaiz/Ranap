@@ -104,7 +104,7 @@ class PembayaranController extends Controller
         if($request['jenis_tarif_id'] == 1) {
             return redirect()->route('ranap.show', $request['pendaftaran_id'])->with('pesan', 'Tindakan berhasil di input.');
         } else {
-            return redirect()->route('laboratorium.index', $request['pendaftaran_id'])->with('pesan', 'Tindakan berhasil di input.');
+            return redirect()->route('laboratorium.index')->with('pesan', 'Tindakan berhasil di input.');
         }
     }
 

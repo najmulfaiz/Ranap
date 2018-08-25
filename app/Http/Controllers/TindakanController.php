@@ -22,10 +22,16 @@ class TindakanController extends Controller
         
         $res = [];
         foreach($tarif as $tarif) {
+            if($tarif->kelas) {
+                $nama = $tarif->nama . ' (' . $tarif->kelas . ')';
+            } else {
+                $nama = $tarif->nama;
+            }
+            
             $res [] = [
                 'id' => $tarif->id,
-                'nama' => $tarif->nama . ' (' . $tarif->kelas . ')',
-                'value' => $tarif->nama . ' (' . $tarif->kelas . ')',
+                'nama' => $nama,
+                'value' => $nama,
                 'tarif' => $tarif->tarif
             ];
         }
