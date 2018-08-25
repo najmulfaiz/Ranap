@@ -74,8 +74,8 @@
                         <div class="col-md-6">
                             <h3>Total Tagihan : </h3>
                             <h1 class="font-weight-bold">Rp. {{ number_format($total_tagihan, 2, ',', '.') }}</h1>
-                            <button class="btn btn-primary btn-sm mt-2" id="btn_pulang" data-id="{{ $pendaftaran->id }}">Pulangkan</button>
-                            <a href="{{ route('pembayaran.nota', $pendaftaran->id) }}" class="btn btn-primary btn-sm mt-2" target="_blank">Cetak Nota</a>
+                            <button class="btn btn-primary btn-sm mt-2" id="btn_pulang" data-id="{{ $pendaftaran->id }}" style="display: none;">Pulangkan</button>
+                            <a href="{{ route('pembayaran.nota', $pendaftaran->id) }}" class="btn btn-info btn-sm mt-2" id="print_nota" target="_blank">Cetak Nota</a>
                         </div>
                     </div>
                     <hr />
@@ -105,6 +105,12 @@
                 'processing': true,
                 'serverSide': true,
                 'ajax': '{{ route('datatable.pembayaran.show', $pendaftaran->id) }}'
+            });
+        });
+
+        $(document).on('click', '#print_nota', function(){
+            $(this).hide(function(){
+                $('#btn_pulang').show();
             });
         });
 
