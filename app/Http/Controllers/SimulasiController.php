@@ -8,6 +8,7 @@ class SimulasiController extends Controller
 {
     function index()
     {
-        return view('simulasi.index');
+        // return view('simulasi.index');
+        return view('simulasi.simulasi');
     }
 }

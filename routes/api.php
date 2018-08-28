@@ -22,6 +22,8 @@ Route::name('api.')->group(function(){
     Route::get('pasien', 'PasienController@api')->name('pasien');
     Route::get('pasien/cek', 'PasienController@cek')->name('pasien.cek');
     Route::get('ruang/{kelas?}', 'RuangController@api')->name('ruang');
+    Route::get('tindakan/{jenis_id}/{kelas?}', 'TindakanController@api')->name('tindakan');
+    Route::get('tarif/{tarif_id}', 'TarifController@api')->name('tarif');
     
     Route::get('provinsi', 'DaerahController@provinsi')->name('provinsi');
     Route::get('kabupaten/{provinsi_id?}', 'DaerahController@kabupaten')->name('kabupaten');

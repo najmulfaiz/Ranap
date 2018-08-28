@@ -38,4 +38,20 @@ class TindakanController extends Controller
 
         return response()->json($res);
     }
+
+    public function api($id, $kelas = null)
+    {
+        if($kelas) {
+            $records = Tarif::where('jenis_tarif_id', $id)
+                            ->where('kelas', $kelas)
+                            ->orderBy('nama')
+                            ->get();
+        } else {
+            $records = Tarif::where('jenis_tarif_id', $id)
+                            ->orderBy('nama')
+                            ->get();
+        }
+
+        return response()->json($records);
+    }
 }

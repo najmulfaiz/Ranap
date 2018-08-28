@@ -174,4 +174,11 @@ class TarifController extends Controller
 
         return response()->json($res);
     }
+
+    public function api($id)
+    {
+        $res = Tarif::where('id', $id)->first();
+
+        return response()->json($res);
+    }
 }
